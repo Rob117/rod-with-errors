@@ -1,4 +1,4 @@
-module timeouts
+module github.com/rob117/rod-with-errors
 
 go 1.22.2
 
