@@ -1,4 +1,4 @@
-package page
+package errorpage
 
 import (
 	"context"
@@ -14,10 +14,10 @@ type PageWithOnError struct {
 	quitTimeoutCheck chan struct{} // Channel to signal quitting the timeout goroutine
 }
 
-// NewPageWithOnError
-// has all of the functions of a rod page, but if you call WithTimeout, it will
-// call OnError and close the page if the timeout is reached.
-func NewPageWithOnError(page *rod.Page, onErrorFunc func(p *PageWithOnError)) *PageWithOnError {
+// New
+// has all of the functions of a rod errorpage, but if you call WithTimeout, it will
+// call OnError and close the errorpage if the timeout is reached.
+func New(page *rod.Page, onErrorFunc func(p *PageWithOnError)) *PageWithOnError {
 	return &PageWithOnError{
 		Page:             *page,
 		OnError:          onErrorFunc,
